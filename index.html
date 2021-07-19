@@ -8,26 +8,30 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div>체지방 분석기!</div>
+        <div class="title">CHECK YOUR BODY FAT</div>
     
         <div class="box">
             <input type="file" id="file-input" />
         </div>
+		
         <!-- leftbox -->
+		<center>
         <div class="box-2">
             <div class="result"></div>
         </div>
+		<button class="btn save hide">자르기</button>
         <!--rightbox-->
         <div class="box-2 img-result hide">
             <!-- result of crop -->
             <img class="cropped" id = "cropped" src="" alt="" />
         </div>
+			</center>
         <!-- input file -->
         <div class="box">
+			
             <div class="options hide">
             </div>
             <!-- save btn -->
-            <button class="btn save hide">자르기</button>
             <!-- download btn -->
 			<button type="button" id="predictBt" class="hide" onclick="predict()">내 체지방은?</button>
 			 <div id="label-container"></div>
