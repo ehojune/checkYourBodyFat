@@ -8,10 +8,8 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div>Teachable Machine Image Model</div>
-        <button type="button" id="predictBt" class="hide" onclick="predict()">내 체지방은?</button>
-
-        <div id="label-container"></div>
+        <div>체지방 분석기!</div>
+    
         <div class="box">
             <input type="file" id="file-input" />
         </div>
@@ -31,6 +29,8 @@
             <!-- save btn -->
             <button class="btn save hide">자르기</button>
             <!-- download btn -->
+			<button type="button" id="predictBt" class="hide" onclick="predict()">내 체지방은?</button>
+			 <div id="label-container"></div>
         </div>
 		<script>
 			window.onload= function(){
@@ -88,6 +88,7 @@
                 // remove hide class of img
                 cropped.classList.remove('hide');
                 img_result.classList.remove('hide');
+				predictBt.classList.remove('hide');
                 // show image cropped
                 cropped.src = imgSrc;
                 dwn.classList.remove('hide');
@@ -112,7 +113,7 @@
 				
                 model = await tf.loadLayersModel(modelURL);
 				var predictBt = document.getElementById("predictBt");
-				predictBt.classList.remove('hide');
+				
                 labelContainer = document.getElementById('label-container');
                 labelContainer.appendChild(document.createElement('div'));
             }
@@ -126,7 +127,7 @@
                 var k = tf.cast(inputTensor, 'float32').resizeBilinear([224, 224]);
                 var input = k.div(b);
                 let result = model.predict(input.reshape([1, 224, 224, 3]));
-                labelContainer.childNodes[0].innerHTML = result.arraySync()[0];
+                labelContainer.childNodes[0].innerHTML = "제가봤을 때는 " +parseInt(result.arraySync()[0]) + "%정도 인것 같네요!";
             }
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
