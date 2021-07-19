@@ -9,7 +9,7 @@
     </head>
     <body>
         <div>Teachable Machine Image Model</div>
-        <button type="button" onclick="predict()">예측</button>
+        <button type="button" id="predictBt" class="hide" onclick="predict()">내 체지방은?</button>
 
         <div id="label-container"></div>
         <div class="box">
@@ -29,7 +29,7 @@
             <div class="options hide">
             </div>
             <!-- save btn -->
-            <button class="btn save hide">Save</button>
+            <button class="btn save hide">자르기</button>
             <!-- download btn -->
         </div>
 		<script>
@@ -109,7 +109,10 @@
             // Load the image model and setup the webcam
             async function init() {
                 const modelURL = URL + 'model.json';
+				
                 model = await tf.loadLayersModel(modelURL);
+				var predictBt = document.getElementById("predictBt");
+				predictBt.classList.remove('hide');
                 labelContainer = document.getElementById('label-container');
                 labelContainer.appendChild(document.createElement('div'));
             }
