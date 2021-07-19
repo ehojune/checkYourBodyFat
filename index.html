@@ -9,7 +9,6 @@
     </head>
     <body>
         <div>Teachable Machine Image Model</div>
-        <button type="button" onclick="init()">Start</button>
         <button type="button" onclick="predict()">예측</button>
 
         <div id="label-container"></div>
@@ -32,8 +31,12 @@
             <!-- save btn -->
             <button class="btn save hide">Save</button>
             <!-- download btn -->
-            <a href="" class="btn download hide">Download</a>
         </div>
+		<script>
+			window.onload= function(){
+				init();
+			}
+		</script>
         <script>
             // vars
             let result = document.querySelector('.result'),
