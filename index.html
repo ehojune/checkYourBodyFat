@@ -211,7 +211,7 @@
 							document.querySelector('.cropBox').classList.remove('hide');
 							save.classList.remove('hide');
 							// init cropper
-							cropper = new Cropper(img);
+							cropper = new Cropper(img, {zoomOnWheel : false});
 						}
 					};
 					reader.readAsDataURL(e.target.files[0]);
