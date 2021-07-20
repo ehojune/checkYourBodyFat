@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link
             rel="stylesheet"
@@ -11,32 +11,33 @@
     </head>
     <body>
         <div class="title">CHECK YOUR BODY FAT</div>
-    
-        <div class="box">
-            <input type="file" id="file-input" />
-        </div>
-		
-        <!-- leftbox -->
-		<center>
-        <div class="box-2">
-            <div class="result"></div>
-        </div>
-		<button class="btn save hide">자르기</button>
-        <!--rightbox-->
-        <div class="box-2 img-result hide">
-            <!-- result of crop -->
-            <img class="cropped" id = "cropped" src="" alt="" />
-        </div>
-			</center>
-        <!-- input file -->
-        <div class="box">
-			
-            <div class="options hide">
+        <div class="container">
+            <div class="box">
+                <input type="file" id="file-input" />
             </div>
-            <!-- save btn -->
-            <!-- download btn -->
-			<button type="button" id="predictBt" class="hide" onclick="predict()">내 체지방은?</button>
-			 <div id="label-container"></div>
+
+            <!-- leftbox -->
+            <center>
+                <div class="box-2">
+                    <div class="result"></div>
+                </div>
+                <button class="btn save hide">자르기</button>
+                <!--rightbox-->
+                <div class="box-2 img-result hide">
+                    <!-- result of crop -->
+                    <img class="cropped" id="cropped" src="" alt="" />
+                </div>
+            </center>
+            <!-- input file -->
+            <div class="box">
+                <div class="options hide"></div>
+                <!-- save btn -->
+                <!-- download btn -->
+                <button type="button" id="predictBt" class="hide" onclick="predict()">
+                    내 체지방은?
+                </button>
+                <div id="label-container"></div>
+            </div>
         </div>
         <script>
             // vars
@@ -70,7 +71,7 @@
                             save.classList.remove('hide');
                             options.classList.remove('hide');
                             // init cropper
-                            cropper = new Cropper(img, {zoomOnWheel : false});
+                            cropper = new Cropper(img, { zoomOnWheel: false });
                         }
                     };
                     reader.readAsDataURL(e.target.files[0]);
@@ -89,7 +90,7 @@
                 // remove hide class of img
                 cropped.classList.remove('hide');
                 img_result.classList.remove('hide');
-				predictBt.classList.remove('hide');
+                predictBt.classList.remove('hide');
                 // show image cropped
                 cropped.src = imgSrc;
                 dwn.classList.remove('hide');
@@ -107,25 +108,25 @@
             const URL = 'https://checkbodyfatmodel.netlify.app/';
 
             let model, labelContainer, maxPredictions;
-			var a=0;
+            var a = 0;
 
             // Load the image model and setup the webcam
             async function init() {
                 const modelURL = URL + 'model.json';
-				
+
                 model = await tf.loadLayersModel(modelURL);
-				var predictBt = document.getElementById("predictBt");
-				
+                var predictBt = document.getElementById('predictBt');
+
                 labelContainer = document.getElementById('label-container');
                 labelContainer.appendChild(document.createElement('div'));
             }
 
             // run the webcam image through the image model
             async function predict() {
-				if(a===0){
-					a+=1;
-					await init();
-				}
+                if (a === 0) {
+                    a += 1;
+                    await init();
+                }
                 //var labelContainer = document.getElementById('label-container');
                 var image = document.getElementById('cropped');
                 const inputTensor = tf.browser.fromPixels(image);
@@ -133,7 +134,8 @@
                 var k = tf.cast(inputTensor, 'float32').resizeBilinear([224, 224]);
                 var input = k.div(b);
                 let result = model.predict(input.reshape([1, 224, 224, 3]));
-                labelContainer.childNodes[0].innerHTML = "제가봤을 때는 " +parseInt(result.arraySync()[0]) + "%정도 인것 같네요!";
+                labelContainer.childNodes[0].innerHTML =
+                    '제가봤을 때는 ' + parseInt(result.arraySync()[0]) + '%정도 인것 같네요!';
             }
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js"></script>
@@ -143,10 +145,11 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
-<!-- Copyright (c) 2021 by Narendra (https://codepen.io/Narendrakaduru/pen/oWevXY)
+    <!-- Copyright (c) 2021 by Narendra (https://codepen.io/Narendrakaduru/pen/oWevXY)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. --></html>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+</html>
