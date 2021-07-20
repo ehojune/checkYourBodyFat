@@ -152,6 +152,7 @@
 					<button type="button" id="predictBt" class="btn hide" onclick="predict()">
 						CHECK!
 					</button>
+					<img class='loading hide' src="Spinner.gif"/>
 					<div id="label-container"></div>
 				</div>
 				<!-- <div class="box-2 img-result hide"> -->
@@ -248,6 +249,8 @@
 			// run the webcam image through the image model
 			async function predict() {
 				//var labelContainer = document.getElementById('label-container');
+				var loading = document.querySelector('.loading');
+				loading.classList.remove('hide');
 				predictBt.classList.add('hide');
 				if (a) {
 					a -= 1;
@@ -259,6 +262,7 @@
 				var k = tf.cast(inputTensor, 'float32').resizeBilinear([224, 224]);
 				var input = k.div(b);
 				let result = model.predict(input.reshape([1, 224, 224, 3]));
+				loading.classList.add('hide');
 				labelContainer.childNodes[0].innerHTML =
 					'제가봤을 때는 ' + parseInt(result.arraySync()[0]) + '%정도 인것 같네요!';
 			}
