@@ -112,7 +112,7 @@ section h1 {
   font-size: 700%;
 }
 
-section h1 {
+/* section h1 {
   position: absolute;
   margin-top: 7%;
   left: 50%;
@@ -124,9 +124,9 @@ section h1 {
   text-align: center;
   white-space: nowrap;
 
-}
+} */
 
-section h2 {
+/* section h2 {
   position: absolute;
   margin-top: 17%;
   left: 50%;
@@ -169,7 +169,7 @@ section h4 {
   line-height: 220%;
   text-align: center;
   white-space: nowrap;
-}
+} */
 
 #bodyfat{
   text-align: left;
