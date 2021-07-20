@@ -96,6 +96,87 @@ section h1 {
 #thanks p a:hover {
   color: #888;
 }
+
+#check{
+  text-align: left;
+  padding-top: 25%;
+  padding-left: 5%;
+  color: rgb(207, 207, 207);
+  font-size: 700%;
+}
+
+#your{
+  text-align: left;
+  padding-left: 5%;
+  color: rgb(207, 207, 207);
+  font-size: 700%;
+}
+
+section h1 {
+  position: absolute;
+  margin-top: 7%;
+  left: 50%;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font : normal 400%/1 'ROKABold', sans-serif;
+  text-align: center;
+  white-space: nowrap;
+
+}
+
+section h2 {
+  position: absolute;
+  margin-top: 17%;
+  left: 50%;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  font : normal 100%/1 'ROKABold', sans-serif;
+  font-size: 140%;
+  line-height: 220%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+section h3 {
+  position: absolute;
+  margin-top: 37%;
+  left: 50%;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #000;
+  font : normal 100%/1 'ROKABold', sans-serif;
+  font-size: 140%;
+  line-height: 220%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+section h4 {
+  position: absolute;
+  margin-top: 67%;
+  left: 50%;
+  z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #000;
+  font : normal 100%/1 'ROKABold', sans-serif;
+  font-size: 140%;
+  line-height: 220%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#bodyfat{
+  text-align: left;
+  padding-left: 5%;
+  color: rgb(207, 207, 207);
+  font-size: 700%;
+}
 .demo a {
   position: absolute;
   bottom: 20px;
@@ -249,7 +330,6 @@ section h1 {
 body {
   font-family: sans-serif;
   background-color: #eeeeee;
-  text-align: center;
 }
 
 .page {
@@ -266,11 +346,15 @@ body {
   width: 100%;
 }
 .result{
-  height: 300px;
+  height: 100%;
+  width: 100%;
 }
 
 
-
+.cropped{
+  height: 100%;
+	width: 100%;
+}
 .box {
   padding: 0.5em;
   width: 100%;
@@ -290,31 +374,66 @@ body {
   padding: 0.5em 1em;
 }
 .btn {
-  background: white;
-  color: black;
-  border: 1px solid black;
+  font-family :'Bold';
+  background: blue;
+  color: lightblue;
+  font-weight : 1000;
+  border: 2px solid black;
   padding: 0.5em 1em;
   text-decoration: none;
   margin: 0.8em 0.3em;
   display: inline-block;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .hide {
   display: none;
 }
-
+.imagebox{
+	background-color: white;
+    border: 1.5px solid;
+	border-color: black;
+	width: 80%;
+    margin: 0 auto;
+	height: 100%;
+    position: relative;
+    object-fit: contain;
+	box-sizing: border-box;
+    border-radius: 10px;
+}
+.cropbox{
+	margin: 3 auto;
+    width: 80%;
+	height: 80%;
+	text-align: center;
+}
+#file-input{
+    margin: 0 auto;
+    padding: 0;
+	width:100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+	position: absolute;
+}
+.upload{
+	width:30%;
+	margin-top:25vh;
+}
+.photo{
+	text-align:center;
+}
 .container{
-	margin-top: 1rem!important;
 	padding: 15% 3%;
     margin: 0 auto;
-    border-radius: 10px;
-    border: solid 1.5px #f6f7fa;
-    background-color: #f6f7fa;
+	object-fit: contain;
+	height : 80vh;
 	max-width: 1140px;
+	display: block;
 }
-
 img {
   max-width:100%;
+  position: relative;
 }
->>>>>>> 2cd67c3b166dd6c6e97d4dfc8e2f3b8be0db8a36
