@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css"
@@ -36,11 +38,6 @@
 			<button type="button" id="predictBt" class="hide" onclick="predict()">내 체지방은?</button>
 			 <div id="label-container"></div>
         </div>
-		<script>
-			window.onload= function(){
-				init();
-			}
-		</script>
         <script>
             // vars
             let result = document.querySelector('.result'),
@@ -73,7 +70,7 @@
                             save.classList.remove('hide');
                             options.classList.remove('hide');
                             // init cropper
-                            cropper = new Cropper(img);
+                            cropper = new Cropper(img, {zoomOnWheel : false});
                         }
                     };
                     reader.readAsDataURL(e.target.files[0]);
@@ -110,6 +107,7 @@
             const URL = 'https://checkbodyfatmodel.netlify.app/';
 
             let model, labelContainer, maxPredictions;
+			var a=0;
 
             // Load the image model and setup the webcam
             async function init() {
@@ -124,6 +122,10 @@
 
             // run the webcam image through the image model
             async function predict() {
+				if(a===0){
+					a+=1;
+					await init();
+				}
                 //var labelContainer = document.getElementById('label-container');
                 var image = document.getElementById('cropped');
                 const inputTensor = tf.browser.fromPixels(image);
@@ -140,4 +142,11 @@
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
---></html>
+-->
+<!-- Copyright (c) 2021 by Narendra (https://codepen.io/Narendrakaduru/pen/oWevXY)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. --></html>

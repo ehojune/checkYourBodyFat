@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'ROKABold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/ROKABold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: sans-serif;
     background-color: #eeeeee;
@@ -13,16 +20,14 @@ body {
     height: 100%;
 }
 .title {
-    font-family: Fantasy;
-    font-size: 350%;
-    width: 100%;
+    font-family : 'ROKABold';
+    font-size: 7vw;
 }
 
 
 
 .box {
     padding: 0.5em;
-    width: 100%;
     margin: 0.5em;
     text-align: center;
 }
@@ -32,7 +37,9 @@ body {
     width: calc(100% / 2 - 1em);
     text-align: center;
 }
-
+.result{
+	height: 300px;
+}
 .options label,
 .options input {
     width: 4em;
