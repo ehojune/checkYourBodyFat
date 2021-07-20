@@ -33,9 +33,9 @@ section.sec2::after {
 section.sec1::after {
   position: absolute;
   bottom: 0;
-  left: 0;
+  right: 0;
   content: '';
-  width: 100%;
+  width: 50%;
   height: 80%;
   background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0, 0, 0, 0.8) 90%,#000000 100%);
   background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0, 0, 0, 0.8) 90%,#000000 100%);
@@ -100,17 +100,23 @@ section h1 {
 
 #check{
   text-align: left;
-  padding-top: 25%;
+  padding-top: 20%;
   padding-left: 5%;
-  color: rgb(207, 207, 207);
-  font-size: 700%;
+  color: rgb(190, 190, 190);
+  font-size: 600%;
 }
 
 #your{
   text-align: left;
   padding-left: 5%;
-  color: rgb(207, 207, 207);
-  font-size: 700%;
+  color: rgb(190, 190, 190);
+  font-size: 600%;
+}
+#bodyfat{
+  text-align: left;
+  padding-left: 5%;
+  color: rgb(190, 190, 190);
+  font-size: 600%;
 }
 
 /* section h1 {
@@ -172,12 +178,7 @@ section h4 {
   white-space: nowrap;
 } */
 
-#bodyfat{
-  text-align: left;
-  padding-left: 5%;
-  color: rgb(207, 207, 207);
-  font-size: 700%;
-}
+
 .demo a {
   position: absolute;
   bottom: 20px;
@@ -435,7 +436,7 @@ body {
 	padding: 15% 3%;
     margin: 0 auto;
 	object-fit: contain;
-	height : 80vh;
+	height : 100vh;
 	max-width: 1140px;
 	display: block;
 }
